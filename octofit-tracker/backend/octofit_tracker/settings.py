@@ -25,7 +25,12 @@ SECRET_KEY = "django-insecure-t7pm+xcjjke*7txwojjvolpr55ytcpi#sz=_&s0@&@x$z7oygz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "msftaiskills-build-applications-w-copilot-agent-mode-8000.app.github.dev",
+    "legendary-space-adventure-rrqwrgq6v662x4r-8000.app.github.dev"
+]
 
 
 # Application definition
