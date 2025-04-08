@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function Workouts() {
+  const [workouts, setWorkouts] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://legendary-space-adventure-rrqwrgq6v662x4r-8000.app.github.dev/api/workouts/')
+      .then(response => {
+        setWorkouts(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching workouts:', error);
+      });
+  }, []);
+
   return (
     <div>
       <h1 className="text-center">Workouts</h1>
-      <p className="text-muted">This is the Workouts component. Add your content here.</p>
+      <ul>
+        {workouts.map(workout => (
+          <li key={workout.id}>{workout.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
